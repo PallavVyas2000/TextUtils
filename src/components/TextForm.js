@@ -5,32 +5,38 @@ export default function TextForm(props) {
   const handleUpClick = () => {
     let UpText = text.toUpperCase();
     setText(UpText);
+    props.showAlert("Converted to UpperCase!","success");
   };
 
   const handleLowClick = () => {
     let LowText = text.toLowerCase();
     setText(LowText);
+    props.showAlert("Converted to LowerCase!","success");
   };
 
   const handleClrText = () => {
     let ClrText = "";
     setText(ClrText);
+    props.showAlert("Cleared all text!","success");
   };
 
   const handleExtraSpaces = () => {
     let xtraSpaceText = text.split(/[ ]+/);
     setText(xtraSpaceText.join(" "));
+    props.showAlert("Removed all extra spaces!","success");
   };
 
   const handleRemSpace = () => {
     let remSpaceText = text.split(" ").join("");
     setText(remSpaceText);
+    props.showAlert("Removed all spaces!","success");
   };
 
   const handleCopy = () => {
     var text = document.getElementById("txtBox")
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text copied to clipboard!","success");
   };
 
   const handleOnChange = (event) => {
@@ -73,7 +79,7 @@ export default function TextForm(props) {
       <div className="container mt-4" style ={{color : props.mode === 'dark'? '#d9d9d9':'#394046'}}>
         <h2>Your text summary :</h2>
           <p>
-            Word Count : {text.split(" ").length}
+            Word Count : {text.length === 0?0:text.split(" ").length}
             <br></br> Character Count :{text.length}
           </p>
           <p>
