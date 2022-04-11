@@ -33,9 +33,7 @@ export default function TextForm(props) {
   };
 
   const handleCopy = () => {
-    var text = document.getElementById("txtBox")
-    text.select();
-    navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text);
     props.showAlert("Text copied to clipboard!","success");
   };
 
@@ -47,43 +45,32 @@ export default function TextForm(props) {
     <>
       <div className="container" style ={{color : props.mode === 'dark'? '#d9d9d9':'#394046'}}>
         <h1>{props.heading}</h1>
+        <h3>Word Counter, Character Counter, Remove extra spaces</h3>
         <div className={`mb-4`}>
           <textarea
             className="form-control mt-4"
             value={text}
             onChange={handleOnChange}
-            style = {{backgroundColor : props.mode === 'dark'? '#394046':'white', color : props.mode === 'dark'? 'white':'black'}}
+            style = {{backgroundColor : props.mode === 'dark'? '#2e3036':'white', color : props.mode === 'dark'? 'white':'black'}}
             id="txtBox"
             rows="8"
             />{" "}
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpClick}>
-          Convert to UpperCase
-        </button>
-        <button className="btn btn-primary mx-2" onClick={handleLowClick}>
-          Convert to LowerCase
-        </button>
-        <button className="btn btn-primary mx-2" onClick={handleRemSpace}>
-          Remove Spaces
-        </button>
-        <button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>
-          Remove Extra Spaces
-        </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
-          Copy text
-        </button>
-        <button className="btn btn-primary mx-2" onClick={handleClrText}>
-          Clear text
-        </button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleUpClick}>Convert to UpperCase</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleLowClick}>Convert to LowerCase</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleRemSpace}>Remove Spaces</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleCopy}>Copy text</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleClrText}>Clear text</button>
       </div>
       <div className="container mt-4" style ={{color : props.mode === 'dark'? '#d9d9d9':'#394046'}}>
         <h2>Your text summary :</h2>
           <p>
-            Word Count : {text.length === 0?0:text.split(" ").length}
+            Word Count : {text.split(/\s+/).filter((element)=>{return element.length!==0}).length}
             <br></br> Character Count :{text.length}
           </p>
           <p>
-            {0.008 * text.split(" ").length} Minute Read
+            {0.008 * text.split(" ").filter((element)=>{return element.length!==0}).length} Minute Read
           </p>
           <h2>Preview</h2>
           <div className="container" style ={{color : props.mode === 'dark'? '#a9a9a9':'#5a5a5a'}}>

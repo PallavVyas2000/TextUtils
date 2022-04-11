@@ -22,7 +22,7 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">           {/* Here we have replaced `a -> Link` and `href -> to` using React-router-dom this helps us update content in our website without reloading the page*/}
+              <Link className="nav-link" aria-current="page" to="/">           {/* Here we have replaced `Link -> Link` and `to -> to` using React-router-dom this helps us update content in our website without reloading the page*/}
                 Home
               </Link>
             </li>
@@ -41,7 +41,7 @@ export default function Navbar(props) {
               onClick={props.toggleMode}
             />
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-              Enable DarkMode
+              {props.mode === 'light'?"Enable":"Disable"} DarkMode
             </label>
           </div>
         </div>

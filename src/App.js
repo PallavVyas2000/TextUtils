@@ -34,6 +34,7 @@ function App() {
       showAlert("Light Mode has been enabled.", "success");
     }
   }
+
   return (
     <>
       <Router>
@@ -41,8 +42,8 @@ function App() {
         <div className="container-app">
           <Alerts alert={alert} />
           <Routes>
-            <Route exact path="/about" element={<About />}/>                                                      {/* Here used "exact" keyword sop that react always completely matches the url instead of partial marching*/}
-            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Enter your text here :" mode={mode} />} />
+            <Route exact path="/about" element={<About mode={mode} />} />                                                      {/*Here used "exact" keyword sop that react always completely matches the url instead of partial marching*/}
+            <Route exact path="/" element={<TextForm showAlert={showAlert} heading="Try TextUtils!!!" mode={mode} toggleMode={toggleMode} />} />       {/*here the syntax is different from the documentation on the website we need to use element tag to pass our component*/}
           </Routes>
         </div>
       </Router>
