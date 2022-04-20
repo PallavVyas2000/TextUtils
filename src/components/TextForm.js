@@ -56,12 +56,12 @@ export default function TextForm(props) {
             rows="8"
             />{" "}
         </div>
-        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleUpClick}>Convert to UpperCase</button>
-        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleLowClick}>Convert to LowerCase</button>
-        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleRemSpace}>Remove Spaces</button>
-        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleCopy}>Copy text</button>
-        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2`} onClick={handleClrText}>Clear text</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2 my-2`} onClick={handleUpClick}>Convert to UpperCase</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2 my-2`} onClick={handleLowClick}>Convert to LowerCase</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2 my-2`} onClick={handleRemSpace}>Remove Spaces</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2 my-2`} onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2 my-2`} onClick={handleCopy}>Copy text</button>
+        <button disabled = {text.length === 0}className={`btn btn-${props.mode === 'dark'? 'light':'secondary'} mx-2 my-2`} onClick={handleClrText}>Clear text</button>
       </div>
       <div className="container mt-4" style ={{color : props.mode === 'dark'? '#d9d9d9':'#394046'}}>
         <h2>Your text summary :</h2>
