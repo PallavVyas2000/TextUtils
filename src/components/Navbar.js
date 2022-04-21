@@ -32,17 +32,18 @@ export default function Navbar(props) {
               </Link>
             </li>
           </ul>
-          <div className={`form-check form-switch text-${props.mode === 'light'?'dark':'light'}`}>       {/* used terenary operator here to change the color of the text expl->  if mode === light is true put text-dark else put light */}
-            <input                                                                                       
-              className="form-check-input"
-              type="checkbox"
-              role="switch"
-              id="flexSwitchCheckDefault"
-              onClick={props.toggleMode}
-            />
-            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-              {props.mode === 'light'?"Enable":"Disable"} DarkMode
-            </label>
+          <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>       {/* used terenary operator here to change the color of the text expl->  if mode === light is true put text-dark else put light */}
+            <i className={`bi bi-brightness-high-fill`} style={{marginRight:"47px"}}></i>
+            <div className="d-inline-flex">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onClick={props.toggleMode}
+              />
+            </div>
+            <i className={`bi bi-moon${props.mode === 'light' ? '-fill' : ''}`}></i>
           </div>
         </div>
       </div>
